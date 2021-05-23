@@ -45,18 +45,21 @@
            v-if="item.id "
            @click.native="showModal"
           :item="item">
+
           </Card>
+           <Modal
+           v-if="showingModal == true"
+          v-on:close="closeModal"
+          :item="items" 
+          :key="id"
+      >
+      </Modal>
         </div>
           
       </div>
     </div>
    
-     <Modal
-           v-if="showingModal"
-          v-on:close="closeModal"
-          :item="item"
-      >
-      </Modal>
+    
     
      
       
@@ -93,7 +96,11 @@ export default {
        showingModal: false,
       toggled: false,
       item:{
-          type: Object
+          name: this.name,
+          classify: this.classify,
+          imageUrl : this.imageUrl,
+          description : this.description,
+          price : this.price
       },
     };
   },

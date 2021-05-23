@@ -1,13 +1,19 @@
 <template>
-  <div v-if="showModal" class="containerr">
-    <div class="image-container">
-      <img v-bind:src="item.imageUrl" width="200" height="200"/>
+  <div  class="containerr">
+    <div id="classify" class="cells">
+      {{ item.classify }}
     </div>
-    <div>{{ item.classify }}</div>
-    <div class="name">{{ item.name }}</div>
-    <div class="details">
-      <div>{{ item.description }}</div>
-      <div class="price">{{ item.price }}</div>
+    <div class="cells">
+      <img v-bind:src="item.imageUrl" width="200" height="200" class="uploading-image" />
+    </div>
+    <div class="cells">
+      {{ item.name }}
+    </div>
+    <div id="description" class="cells">
+      {{ item.description }}
+    </div>
+    <div class="cells">
+      {{ item.price }}
     </div>
    
     
@@ -16,37 +22,38 @@
 </template>
 
 <script>
-import Card from './Card.vue'
+
 export default {
   name: "Modal",
   components:{
-      Card
+
   },
   data() {
     return {
+    //      item:{
+    //       name: this.name,
+    //       classify: this.classify,
+    //       imageUrl : this.imageUrl,
+    //       description : this.description,
+    //       price : this.price
+    //   },
         
       showModal: true, 
     };
   },
-  props: {
-      item:Object,
-    //   item:{
-    //       classify: this.classify,
-    //     imageUrl: this.item.imageUrl,
-    //     name: this.name,
-    //     description: this.description,
-    //     price: this.price,
-    //   },
+   create() {
+    console.log("item created");
   },
+  props:['item'],
 //   computed: {
 //         items() {
 //             return this.$store.state.items;
 //         }
 //     },
   methods: {
-    showAlert() {
-      this.showModal = !this.showModal;
-    },
+    // showAlert() {
+    //   this.showModal = !this.showModal;
+    // },
     close() {
       console.log("cccccclosing");
       // alert('gfhfhg')
