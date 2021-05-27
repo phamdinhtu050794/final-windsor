@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {      
-      showModal: true, 
+      showModal: null, 
     };
   },
    create() {

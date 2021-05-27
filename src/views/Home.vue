@@ -2,7 +2,6 @@
   <div class="home">
     <HomeTitle></HomeTitle>
     <div class="home-header">
-
       <!-- <BarMenu></BarMenu> -->
       <div class="menu">
         <div
@@ -21,7 +20,7 @@
           <div v-show="toggled" class="menu-box">
             <h1>Menu</h1>
             <br />
-              <a class="section" href="#goto0"><h4>All</h4></a>
+            <a class="section" href="#goto0"><h4>All</h4></a>
             <br />
             <a class="section" href="#goto1"><h4>Hot Tea</h4></a>
             <br />
@@ -41,45 +40,33 @@
       </div>
       <div class="table">
         <div v-for="item in items" :key="item.id">
-          <Card 
-           v-if="item.id"
-           @click.native="showModal(item.id)"
-          :item="item">
-
+          <Card v-if="item.id" @click.native="showModal(item.id)" :item="item">
           </Card>
-            <Modal
-           v-if="showingModal != null"
-          v-on:close="closeModal"
-          :item="items[showingModal]" 
-          
-      >
-      </Modal>
+  
         </div>
-       
-          
       </div>
+        <Modal
+            v-if="showingModal != null"
+            v-on:close="closeModal"
+            :item="items[showingModal]"
+          >
+          </Modal>
     </div>
-   
-    
-    
-     
-      
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Card from "./../components/Card.vue";
-import HomeTitle from './../components/HomeTitle.vue'
-import Modal from './../components/Modal.vue'
+import HomeTitle from "./../components/HomeTitle.vue";
+import Modal from "./../components/Modal.vue";
 
 export default {
   name: "Home",
   components: {
     Card,
-    HomeTitle, 
-    Modal
-    // BarMenu
+    HomeTitle,
+    Modal,
   },
   computed: {
     items() {
@@ -89,19 +76,17 @@ export default {
   created() {
     this.$store.dispatch("getItems");
   },
-
   data() {
     return {
       // id: Number,
-       showingModal : null,
+      showingModal: null,
       toggled: false,
-      item:{
-        
-          name: this.name,
-          classify: this.classify,
-          imageUrl : this.imageUrl,
-          description : this.description,
-          price : this.price
+      item: {
+        name: this.name,
+        classify: this.classify,
+        imageUrl: this.imageUrl,
+        description: this.description,
+        price: this.price,
       },
     };
   },
@@ -112,23 +97,17 @@ export default {
     inventory() {
       this.$router.push({ name: "Inventory" });
     },
-   
-     showModal(IDs) {
+    showModal(IDs) {
       this.showingModal = IDs;
-      // this.showingModal = true;
-      
-     
     },
-
     closeModal() {
-      console.log('make')
+      console.log("make");
       this.showingModal = null;
     },
-     close() {
+    close() {
       console.log("closingggg");
       this.$emit("close");
     },
-    
   },
 };
 </script>
@@ -139,7 +118,6 @@ export default {
   justify-content: space-around;
   background-color: antiquewhite;
   // overflow: hidden;
-  
 }
 .home-header {
   display: flex;
@@ -149,18 +127,16 @@ export default {
   // width: 100vw;
   // align-items: baseline;
 }
-.menu{
-      // position: -webkit-sticky;
+.menu {
+  // position: -webkit-sticky;
   position: static;
   // top: 0;
   // padding-top: 10vh;
-  
+
   /* padding: 5px; */
   // background-color: #cae8ca;
   // border: 2px solid #4CAF50;
 }
-
-
 
 .menu-box-bottom {
   display: flex;
@@ -248,49 +224,46 @@ export default {
 .fas {
   font-size: 36px;
 }
-.table{
+.table {
   display: flex;
   flex-wrap: wrap;
-   
+
   justify-content: space-around;
   padding: 2%;
   padding-left: 2%;
   padding-right: 2%;
-   width: 100%;
-
-
-   
+  width: 100%;
 }
 ::v-deep .card-container {
-   display: flex;
-   flex-direction: column;
-   
-    // flex-wrap: wrap;
-    justify-content: space-around;
-     width: 20vw;
-     min-width: 25vw;
-     height: 25vh;
-     margin-bottom: 5vh;
-    //  padding-bottom: 5vh;
-     background-color: rgb(241, 255, 47);
-    //  margin: 2%;
-     border: 0.5px solid black;
+  display: flex;
+  flex-direction: column;
+
+  // flex-wrap: wrap;
+  justify-content: space-around;
+  width: 20vw;
+  min-width: 25vw;
+  height: 25vh;
+  margin-bottom: 5vh;
+  //  padding-bottom: 5vh;
+  background-color: rgb(241, 255, 47);
+  //  margin: 2%;
+  border: 0.5px solid black;
 }
 
-::v-deep #classify{
+::v-deep #classify {
   display: none;
 }
-::v-deep #description{
+::v-deep #description {
   display: none;
 }
-::v-deep #action{
+::v-deep #action {
   display: none;
 }
 // ::v-deep .cells {
 //   // padding: 30px;
 //   //   margin-bottom: 30px;
 //     // border: 0.5px solid black;
-   
+
 //   // height: 10%;
 //   // overflow: scroll;
 // }
