@@ -40,9 +40,11 @@
       </div>
       <div class="table">
         <div v-for="item in items" :key="item.id">
-          <Card v-if="item.id" @click.native="showModal(item.id)" :item="item">
+          <Card v-if="item.id"
+           @click.native="showModal(item.id)" 
+           :item="item">
           </Card>
-  
+           
         </div>
       </div>
         <Modal
@@ -51,6 +53,7 @@
             :item="items[showingModal]"
           >
           </Modal>
+     
     </div>
   </div>
 </template>
@@ -98,8 +101,13 @@ export default {
       this.$router.push({ name: "Inventory" });
     },
     showModal(IDs) {
-      
-      this.showingModal = IDs;
+      for(var i = 0; i < this.item,length; i++){
+        console.log("loooking " + i);
+        if (this.item[i].id == IDs){
+          this.showingModal = i;
+        }
+      }
+      // this.showingModal = IDs;
     },
     closeModal() {
       console.log("make");
