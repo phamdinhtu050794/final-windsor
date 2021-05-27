@@ -48,9 +48,9 @@
 
           </Card>
             <Modal
-           v-if="showingModal == item.id"
+           v-if="showingModal != null"
           v-on:close="closeModal"
-          :item="item" 
+          :item="items[showingModal]" 
           
       >
       </Modal>
@@ -93,7 +93,7 @@ export default {
   data() {
     return {
       // id: Number,
-       showingModal : true,
+       showingModal : null,
       toggled: false,
       item:{
         
@@ -122,7 +122,7 @@ export default {
 
     closeModal() {
       console.log('make')
-      this.showingModal = false;
+      this.showingModal = null;
     },
      close() {
       console.log("closingggg");
