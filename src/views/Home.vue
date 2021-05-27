@@ -98,6 +98,7 @@ export default {
       this.$router.push({ name: "Inventory" });
     },
     showModal(IDs) {
+      
       this.showingModal = IDs;
     },
     closeModal() {

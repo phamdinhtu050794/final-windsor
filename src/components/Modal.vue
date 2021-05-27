@@ -1,5 +1,5 @@
 <template>
-  <div v-if="showModal" class="containerr">
+  <div  class="containerr">
     <div id="classify" class="cells">
       {{ item.classify}}
     </div>
@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {      
-      showModal: null, 
+      // showModal: null, 
     };
   },
    create() {
