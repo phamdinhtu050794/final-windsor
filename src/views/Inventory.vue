@@ -6,6 +6,7 @@
       <i @click="addCard" class="fa">&#xf055;</i>
     </div>
     <div class="table-header">
+       
       <div class="cell">Classify</div>
       <div class="cell">Image</div>
       <div class="cell">Name</div>

@@ -3,6 +3,7 @@
     <div>
       <h1>Edit</h1>
     </div>
+     
     <input class="input" v-model="item.classify" placeholder="classify" />
     <!-- <input type="file" id="pictureTest" capture> -->
     <input class="input" v-model="item.name" placeholder="name" />
@@ -25,8 +26,10 @@ export default {
   },
   data() {
     return {
+      
       item: null,
       item: {
+        
         image: null,
         imageUrl: null,
       },
@@ -37,6 +40,7 @@ export default {
       this.item = this.$route.params.item;
     } else {
       this.item = {
+        
         classify: this.classify,
         imageUrl: this.item.imageUrl,
         name: this.name,

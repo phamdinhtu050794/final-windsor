@@ -1,7 +1,7 @@
 <template>
-  <div  class="containerr">
+  <div v-if="showModal" class="containerr">
     <div id="classify" class="cells">
-      {{ item.classify }}
+      {{ item.classify}}
     </div>
     <div class="cells">
       <img v-bind:src="item.imageUrl" width="200" height="200" class="uploading-image" />
@@ -15,6 +15,8 @@
     <div class="cells">
       {{ item.price }}
     </div>
+
+    <!-- {{item.name}} -->
    
     
     <i @click="close" id="button" class="fa">&#xf00d;</i>
@@ -29,15 +31,7 @@ export default {
 
   },
   data() {
-    return {
-    //      item:{
-    //       name: this.name,
-    //       classify: this.classify,
-    //       imageUrl : this.imageUrl,
-    //       description : this.description,
-    //       price : this.price
-    //   },
-        
+    return {      
       showModal: true, 
     };
   },
@@ -45,15 +39,9 @@ export default {
     console.log("item created");
   },
   props:['item'],
-//   computed: {
-//         items() {
-//             return this.$store.state.items;
-//         }
-//     },
+
   methods: {
-    // showAlert() {
-    //   this.showModal = !this.showModal;
-    // },
+  
     close() {
       console.log("cccccclosing");
       // alert('gfhfhg')
@@ -74,10 +62,10 @@ export default {
   left: 250px;
   width: 70%;
   height: 70%;
-  background-color: rgb(245, 245, 245);
-  // opacity: 0.5;
+  
   margin: 0px auto;
   border: 1px solid white;
+  background-color: bisque;
   border-radius: 50px;
 }
 // .image-container {

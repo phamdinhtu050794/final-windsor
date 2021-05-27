@@ -40,21 +40,22 @@
         </transition>
       </div>
       <div class="table">
-        <div v-for="(item, id) in items" :key="id">
+        <div v-for="item in items" :key="item.id">
           <Card 
-           v-if="item.id "
-           @click.native="showModal"
+           v-if="item.id"
+           @click.native="showModal(item.id)"
           :item="item">
 
           </Card>
-           <Modal
-           v-if="showingModal == true"
+            <Modal
+           v-if="showingModal == item.id"
           v-on:close="closeModal"
-          :item="items" 
-          :key="id"
+          :item="item" 
+          
       >
       </Modal>
         </div>
+       
           
       </div>
     </div>
@@ -91,11 +92,11 @@ export default {
 
   data() {
     return {
-      // item: this.item,
-      
-       showingModal: false,
+      // id: Number,
+       showingModal : true,
       toggled: false,
       item:{
+        
           name: this.name,
           classify: this.classify,
           imageUrl : this.imageUrl,
@@ -112,15 +113,15 @@ export default {
       this.$router.push({ name: "Inventory" });
     },
    
-     showModal() {
+     showModal(IDs) {
+      this.showingModal = IDs;
+      // this.showingModal = true;
+      
      
-      // // this.showModal= true
-      // this.showCard = item.id;
-      //  this.item = this.items[item.id];
-      this.showingModal = true;
-       
     },
+
     closeModal() {
+      console.log('make')
       this.showingModal = false;
     },
      close() {
