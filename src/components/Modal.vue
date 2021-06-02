@@ -1,19 +1,19 @@
 <template>
   <div  class="containerr">
     <div id="classify" class="cells">
-      {{ item.classify}}
+     <h3>{{item.classify}}</h3>
     </div>
     <div class="cells">
-      <img v-bind:src="item.imageUrl" width="200" height="200" class="uploading-image" />
+      <img v-bind:src="item.imageUrl" width="400" height="400" class="uploading-image" />
     </div>
-    <div class="cells">
-      {{ item.name }}
+    <div id="cell" class="cells">
+     <div><h4>Name: </h4></div> <div>{{ item.name }}</div>
     </div>
-    <div id="description" class="cells">
-      {{ item.description }}
+    <div i id="cell" class="cells">
+     <div><h4>Description: </h4></div> <div>{{ item.description }}</div>
     </div>
-    <div class="cells">
-      {{ item.price }}
+    <div id="cell" class="cells">
+     <div><h4>Price: </h4></div> <div>{{ item.price }}</div>
     </div>
 
     <!-- {{item.name}} -->
@@ -56,57 +56,39 @@ export default {
 .containerr {
   display: flex;
   flex-direction: column;
+  // justify-content: flex-start;
   position: fixed;
   z-index: 1;
   top: 100px;
-  left: 250px;
-  width: 70%;
-  height: 70%;
+  left: 25%;
+  width: 50%;
+  height: auto;
   
   margin: 0px auto;
   border: 1px solid white;
   background-color: bisque;
   border-radius: 50px;
 }
-// .image-container {
-//   margin: 40px;
-//   left: 100px;
-// }
-// .description {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-// }
-// .footer {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-around;
-//   width: 80%;
-//   margin: 20px;
-// }
-// .details {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-between;
-//   align-items: baseline;
-//   padding: 2%;
-// }
 #button {
   position: absolute;
   top: 0px;
   right: 40px;
   font-size: 36px;
 }
-// .name {
-//   font-size: 30px;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: left;
-//   padding: 2%;
-// }
-// .price {
-//   font-size: 30px;
-//   top: 0px;
-//   align-self: flex-end;
-// }
+
+#cell{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: baseline;
+  text-align: start;
+  margin-left: 10%;
+  padding-right: 10%;
+
+}
+#cell h4{
+  padding-right: 10px;
+  // background-color: red;
+}
+
 </style>

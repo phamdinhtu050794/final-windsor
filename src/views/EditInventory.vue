@@ -3,15 +3,23 @@
     <div>
       <h1>Edit</h1>
     </div>
-     
-    <input class="input" v-model="item.classify" placeholder="classify" />
+     <select class="select" v-model="item.classify">
+  <option disabled value="">Please select one</option>
+  <option>White Tea</option>
+  <option>Oolong Tea  </option>
+  <option>Green Tea</option>
+  <option>Black Tea</option>
+  <option>Cake</option>
+</select>
+    <!-- <input class="input" v-model="item.classify" placeholder="classify" /> -->
     <!-- <input type="file" id="pictureTest" capture> -->
-    <input class="input" v-model="item.name" placeholder="name" />
-    <input class="input" v-model="item.description" placeholder="description" />
-    <input class="input" v-model="item.price" placeholder="price" />
+    <textarea class="input" v-model="item.name" placeholder="name" />
+    <textarea class="input" v-model="item.description" placeholder="description" />
+    <textarea class="input" v-model="item.price" placeholder="price" />
+    <h5>Please select image</h5>
     <input type="file" accept="image/*" @change="uploadImage"  />
     <div id="preview">
-      <img v-if="item.imageUrl" :src="item.imageUrl" width="200" height="200" />
+      <img v-if="item.imageUrl" :src="item.imageUrl" width="150" height="150" />
     </div>
     <button class="btn" @click="save">Save</button>
     <button class="btn" @click="back">Cancel</button>
@@ -29,7 +37,7 @@ export default {
       
       item: null,
       item: {
-        
+        classify: Number,
         image: null,
         imageUrl: null,
       },
@@ -41,7 +49,7 @@ export default {
     } else {
       this.item = {
         
-        classify: this.classify,
+        classify: Number,
         imageUrl: this.item.imageUrl,
         name: this.name,
         description: this.description,
@@ -78,13 +86,18 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
+  margin: 20%;
+
+  margin-top: 10%;
+  // padding: 20%;
+ 
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
 }
 .input {
-  width: 70vw;
+  width: 50vw;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -94,7 +107,7 @@ export default {
 }
 
 .btn {
-  width: 70vw;
+  width: 50vw;
   background-color: #4caf50;
   color: white;
   padding: 14px 20px;
@@ -116,5 +129,9 @@ export default {
 #preview img {
   max-width: 70%;
   max-height: 200px;
+}
+.select{
+  width: 20%;
+  height: 30px;
 }
 </style>

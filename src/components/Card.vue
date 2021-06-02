@@ -6,13 +6,13 @@
     <div class="cells">
       <img v-bind:src="item.imageUrl" class="uploading-image" />
     </div>
-    <div class="cells">
+    <div id="name" class="cells">
       {{ item.name }}
     </div>
     <div id="description" class="cells">
       {{ item.description }}
     </div>
-    <div class="cells">
+    <div id="price" class="cells">
       {{ item.price }}
     </div>
     <div id="action" class="cells">
@@ -59,7 +59,7 @@ export default {
 //     // overflow: scroll;
 // }
 .uploading-image {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 150px;
 }
 </style>

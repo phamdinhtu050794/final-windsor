@@ -20,18 +20,30 @@
           <div v-show="toggled" class="menu-box">
             <h1>Menu</h1>
             <br />
-            <a class="section" href="#goto0"><h4>All</h4></a>
+            <a class="section"><h4>All</h4></a>
             <br />
-            <a class="section" href="#goto1"><h4>Hot Tea</h4></a>
+            <a class="section"><h4>White Tea</h4></a>
             <br />
-            <a class="section" href="#goto2"><h4>Cold Tea</h4></a>
+            <a class="section"><h4>Oolong Tea</h4></a>
             <br />
-            <a class="section" href="#goto3"><h4>Oolong tea</h4></a>
+            <a class="section"><h4>Green Tea</h4></a>
             <br />
-            <a class="section" href="#goto4"><h4>Cookies</h4></a>
+            <a class="section"><h4>Black Tea</h4></a>
+            <br>
+            <a class="section"><h4>Cake</h4></a>
             <br />
-            <a class="section" href="#goto5"><h4>MilkTea</h4></a>
-            <br />
+<!-- 
+             <ul class="tabs-header">
+                  <li
+                  
+                  v-for="(item, classify) in item" 
+                  :key="classify"
+                  v-on:click="setActive(classify)"
+                  v-bind:class="{active : tabActive == classify}"
+                  >
+                    {{ item.classify }}
+                  </li>
+                </ul> -->
             <div>
               <i @click="inventory" class="fas">&#xf468;</i>
             </div>
@@ -40,20 +52,19 @@
       </div>
       <div class="table">
         <div v-for="item in items" :key="item.id">
-          <Card v-if="item.id"
-           @click.native="showModal(item.id)" 
-           :item="item">
+          <Card v-if="item.id" 
+                @click.native="showModal(item.id)" 
+                :item="item">
           </Card>
-           
         </div>
       </div>
-        <Modal
-            v-if="showingModal != null"
-            v-on:close="closeModal"
-            :item="items[showingModal]"
-          >
-          </Modal>
-     
+      <Modal
+        class="modal"
+        v-if="showingModal != null"
+        v-on:close="closeModal"
+        :item="items[showingModal]"
+      >
+      </Modal>
     </div>
   </div>
 </template>
@@ -84,13 +95,14 @@ export default {
       // id: Number,
       showingModal: null,
       toggled: false,
-      item: {
-        name: this.name,
-        classify: this.classify,
-        imageUrl: this.imageUrl,
-        description: this.description,
-        price: this.price,
-      },
+      
+      // item: {
+      //   name: this.name,
+      //   classify: this.classify,
+      //   imageUrl: this.imageUrl,
+      //   description: this.description,
+      //   price: this.price,
+      // },
     };
   },
   methods: {
@@ -101,9 +113,9 @@ export default {
       this.$router.push({ name: "Inventory" });
     },
     showModal(IDs) {
-      for(var i = 0; i < this.item,length; i++){
+      for (var i = 0; i < this.items.length; i++) {
         console.log("loooking " + i);
-        if (this.item[i].id == IDs){
+        if (this.items[i].id == IDs) {
           this.showingModal = i;
         }
       }
@@ -126,32 +138,18 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   background-color: antiquewhite;
-  // overflow: hidden;
 }
 .home-header {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  // overflow: hidden;
-  // width: 100vw;
-  // align-items: baseline;
+  justify-content: space-between;
+  overflow: hidden;
+  height: 90vh;
 }
-.menu {
-  // position: -webkit-sticky;
-  position: static;
-  // top: 0;
-  // padding-top: 10vh;
-
-  /* padding: 5px; */
-  // background-color: #cae8ca;
-  // border: 2px solid #4CAF50;
-}
-
 .menu-box-bottom {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  // width: 20vw;
   height: 100vh;
 }
 .menu-box a {
@@ -161,12 +159,11 @@ export default {
 }
 .menu-box {
   display: flex;
-  // position: sticky;
   flex-direction: column;
-  justify-content: space-around;
-  // align-items: flex-start;
+  justify-content: start;
   width: 15vw;
   height: 100vh;
+  overflow: scroll;
   background-color: rgb(255, 206, 47);
   border-radius: 15px;
 }
@@ -200,12 +197,9 @@ export default {
 .menu-box-bottom-leave-active {
   transition: all 1s ease-out;
 }
-
 .container {
-  // display: inline-block;
   cursor: pointer;
 }
-
 .bar1,
 .bar2,
 .bar3 {
@@ -215,28 +209,24 @@ export default {
   margin: 6px 0;
   transition: 0.5s;
 }
-
 .change .bar1 {
   -webkit-transform: rotate(-45deg) translate(-9px, 6px);
   transform: rotate(-45deg) translate(-9px, 6px);
 }
-
 .change .bar2 {
   opacity: 0;
 }
-
 .change .bar3 {
   -webkit-transform: rotate(45deg) translate(-8px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
 }
-
 .fas {
   font-size: 36px;
 }
 .table {
   display: flex;
   flex-wrap: wrap;
-
+  overflow: scroll;
   justify-content: space-around;
   padding: 2%;
   padding-left: 2%;
@@ -246,34 +236,45 @@ export default {
 ::v-deep .card-container {
   display: flex;
   flex-direction: column;
-
-  // flex-wrap: wrap;
   justify-content: space-around;
   width: 20vw;
   min-width: 25vw;
   height: 25vh;
   margin-bottom: 5vh;
-  //  padding-bottom: 5vh;
-  background-color: rgb(241, 255, 47);
-  //  margin: 2%;
+  background-color: white;
+  border-radius: 15px;
   border: 0.5px solid black;
 }
-
-::v-deep #classify {
+::v-deep .table #name {
+  position: relative;
+  text-align: start;
+  padding-left: 10px;
+  margin-left: 10px;
+  overflow: scroll;
+  scrollbar-width: none;
+  width: 90%;
+  height: 30px;
+  font-family: monospace;
+  font-size: 22px;
+}
+::v-deep .table #price {
+  position: relative;
+  width: 40%;
+  height: 30px;
+  margin-left: 10px;
+  padding-left: 10px;
+  font-size: 22px;
+  font-family: monospace;
+  color: red;
+  text-align: start;
+}
+::v-deep .table #classify {
   display: none;
 }
-::v-deep #description {
+::v-deep .table #description {
   display: none;
 }
-::v-deep #action {
+::v-deep .table #action {
   display: none;
 }
-// ::v-deep .cells {
-//   // padding: 30px;
-//   //   margin-bottom: 30px;
-//     // border: 0.5px solid black;
-
-//   // height: 10%;
-//   // overflow: scroll;
-// }
 </style>

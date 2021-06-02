@@ -6,7 +6,6 @@
       <i @click="addCard" class="fa">&#xf055;</i>
     </div>
     <div class="table-header">
-       
       <div class="cell">Classify</div>
       <div class="cell">Image</div>
       <div class="cell">Name</div>
@@ -24,7 +23,6 @@
             class="list-item"
           ></Card>
         </div>
-    
       </div>
     </div>
   </div>
@@ -71,7 +69,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding-top: 5%;
+  padding: 1%;
   margin: 0px;
 }
 .inventory-header {
@@ -82,45 +80,31 @@ export default {
 .fa {
   font-size: 48px;
 }
-.table-body-container {
-  height: 100vh;
-}
-
 .table-header {
   display: flex;
   flex-direction: row;
-  // justify-content: space-between;
-  width: 100vw;
-  height: 50px;
-  padding-top: 5%;
+  align-items: center;
 }
-// .list-item{
-// display: flex;
-// flex-direction: row;
-// justify-content: space-around;
-
-// width: 100vw;
-
-// }
-::v-deep .card-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100vw;
+.cell {
+  height: 50px;
+  background-color: bisque;
+  color: black;
+  font-size: 24px;
+}
+::v-deep .card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
 }
 ::v-deep .cells {
-    
-     overflow: scroll;
-    width: 17vw;
-    height: 100px;
-    
-    padding: 1%;
-    text-align: start;
-    border: 0.5px solid black;
-    // height: 10%;
-    // overflow: scroll;
+  overflow: scroll;
+  width: 17vw;
+  height: 200px;
+  padding: 1%;
+  text-align: start;
+  border: 0.5px solid black;
 }
-
 .cell {
   flex: 1 0 15%; // flex: grow shirnk percent
   border: 0.5px solid black;
