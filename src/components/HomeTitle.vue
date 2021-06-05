@@ -18,9 +18,10 @@ export default {
       position: -webkit-sticky;
   position: sticky;
   top: 0;
-  
-  /* padding: 5px; */
-  background-color: #cae8ca;
+  overflow: hidden;
+  z-index: 2;
+  /* padding-bottom: 10vh; */
+  background-color: white;
   border: 2px solid #073009;
 }
 

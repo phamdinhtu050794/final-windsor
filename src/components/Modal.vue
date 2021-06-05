@@ -91,4 +91,26 @@ export default {
   // background-color: red;
 }
 
+@media only screen and (max-width: 768px){
+
+
+.containerr {
+  display: flex;
+  flex-direction: column;
+  // justify-content: flex-start;
+  position: fixed;
+  z-index: 1;
+  top: 150px;
+  left: 20%;
+  width: 70%;
+  height: auto;
+  
+  margin: 0px auto;
+  border: 1px solid white;
+  background-color: bisque;
+  border-radius: 50px;
+}
+  
+}
+
 </style>

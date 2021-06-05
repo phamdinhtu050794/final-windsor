@@ -59,7 +59,24 @@ export default {
 //     // overflow: scroll;
 // }
 .uploading-image {
-  width: 200px;
+  width: 150px;
   height: 150px;
+}
+@media only screen and (max-width: 1366px){
+  .uploading-image {
+  width: 120px;
+  height: 120px;
+}
+}
+
+@media only screen and (max-width: 768px){
+.uploading-image {
+  width: 150px;
+  height: 150px;
+}
+
+
+
+  
 }
 </style>

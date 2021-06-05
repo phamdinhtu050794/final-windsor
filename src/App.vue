@@ -1,14 +1,15 @@
 <template>
   <div id="app">
-    
+    <HomeTitle class="top"></HomeTitle>
     <router-view class="body-content"/>
   </div>
 </template>
 <script>
-
+import HomeTitle from "./components/HomeTitle.vue";
 export default {
   name:'App',
   components:{
+    HomeTitle
     
   }
 }
@@ -20,8 +21,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: auto;
+
 }
 body{
+  // overflow: hidden;
   padding: 0px;
   margin: 0px;
   // overflow: scroll;
@@ -38,6 +42,16 @@ body{
     }
   }
   
+  router-view{
+    margin: 0px;
+    padding: 0px;
+    // padding-top: 10vh;
+    // overflow: hidden;
+    height:auto;
+
+  }
+  
+
 
 
 }

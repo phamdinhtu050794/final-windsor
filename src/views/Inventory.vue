@@ -93,16 +93,20 @@ export default {
 }
 ::v-deep .card-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
+  
+  // flex-direction: row;
+  // justify-content: center;
+  // width: 100%;
+  
 }
 ::v-deep .cells {
   overflow: scroll;
   width: 17vw;
   height: 200px;
   padding: 1%;
-  text-align: start;
+  text-align: center;
+  // align-items: center;
+  align-content: center;
   border: 0.5px solid black;
 }
 .cell {
